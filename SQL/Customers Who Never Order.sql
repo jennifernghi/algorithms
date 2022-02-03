@@ -12,4 +12,9 @@ insert into #Orders (id, customerId) values ('2', '1')
 
 select C.name as 'Customers' 
 from #Customers C where C.id not in 
-(select O.CustomerId from #Orders O )
+(select O.CustomerId from #Orders O );
+
+select a.name
+from #Customers a
+left join  #Orders b on a.id = b.customerId
+where b.customerId is null
